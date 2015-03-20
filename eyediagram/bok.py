@@ -14,7 +14,7 @@ __all__ = ['eyediagram']
 
 
 def eyediagram(y, window_size, offset=0,
-               color=None, cmap=None, alpha=0.85,
+               color=None, cmap=None, alpha=1,
                filename='eyediagram.html'):
     """
     Plot an eye diagram using bokeh.

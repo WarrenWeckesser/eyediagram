@@ -1,7 +1,7 @@
 eyediagram
 ==========
 
-`eyediagram` is a python library for generating eye diagram (a.k.a. eye patterns).
+`eyediagram` is a python library for generating eye diagrams (a.k.a. eye patterns).
 
 This is prototype-quality software.  The documentation is thin, and the API may
 change.
@@ -9,7 +9,7 @@ change.
 cython is required to build the package.
 
 To use the package, numpy and scipy must be installed.  Plots are generated with
-either matploblib or bokeh.
+either matplotlib or bokeh.
 
 Example
 -------

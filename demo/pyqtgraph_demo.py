@@ -1,7 +1,7 @@
 # Copyright (c) 2015, Warren Weckesser.  All rights reserved.
 # This software is licensed according to the "BSD 2-clause" license.
 #
-# Use pyqtgraph to display the eye diagram computed by eyediaram.grid_count.
+# Use pyqtgraph to display the eye diagram computed by eyediagram.grid_count.
 
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtCore, QtGui

@@ -111,7 +111,7 @@ displayed using the graphics library `pyqtgraph`.
     y = demo_data(5000, 24)
     counts = grid_count(y, 48, offset=16, size=(480, 480))
 
-    # Convert counts to an of RGBA values with shape (480, 480, 4)
+    # Convert counts to an array of RGBA values with shape (480, 480, 4)
     a = colorize(counts, (192, 168, 48))
 
 

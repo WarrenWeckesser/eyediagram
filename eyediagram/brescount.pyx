@@ -5,10 +5,8 @@ cimport cython
 
 
 @cython.boundscheck(False)
-cdef int bres_segment_count(unsigned x0, unsigned y0,
-                            unsigned x1, unsigned y1,
-                            int[:, :] grid,
-                            int endpoint):
+cdef int bres_segment_count(int x0, int y0, int x1, int y1,
+                            int[:, :] grid, int endpoint):
     """Bresenham's algorithm.
 
     See http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
@@ -49,7 +47,7 @@ cdef int bres_segment_count(unsigned x0, unsigned y0,
         if endpoint == 0 and x0 == x1 and y0 == y1:
             break
 
-        if (x0 < nrows) and (y0 < ncols):
+        if (0 <= x0 < nrows) and (0 <= y0 < ncols):
             grid[x0, y0] += 1
 
         if x0 == x1 and y0 == y1:

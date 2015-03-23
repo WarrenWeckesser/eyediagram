@@ -1,0 +1,5 @@
+*.py[cod]
+build/
+
+demo/bok_demo.html
+eyediagram/brescount.c

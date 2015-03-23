@@ -37,12 +37,16 @@ def colorize(counts, color1, color2=None):
 
 # Generate image data
 y = demo_data(5000, 24)
-counts = grid_count(y, 48, offset=16, size=(480, 480))
+ybounds = (-0.25, 1.25)
 
-# Convert counts to an array of RGBA values with shape (480, 480, 4)
-a = colorize(counts, (192, 168, 48))
+# Compute the eye diagram image data.
+counts = grid_count(y, 48, offset=16, size=(480, 480), bounds=ybounds)
 
+# Convert counts to an array of RGBA values.
+yellow = (224, 192, 48)
+img_data = colorize(counts, yellow)
 
+#-------------------------------------------------------------------------
 # The rest of this script uses pyqtgraph to create a plot
 # of the eye diagram.
 
@@ -56,16 +60,16 @@ p1 = win.addPlot()
 
 # ImageItem for displaying the eye diagram as an image.
 img = pg.ImageItem()
-img.setImage(a.astype(np.float64))
+img.setImage(img_data.astype(np.float64))
 img.setBorder(10)
 p1.addItem(img)
 
 # Set position and scale of image.
-yamp = y.ptp()
-img.scale(2./counts.shape[0], 1.1*yamp/counts.shape[1])
+dy = ybounds[1] - ybounds[0]
+img.scale(2./counts.shape[0], dy/counts.shape[1])
 h = counts.shape[1]
-p0 = h*(-0.9*y.min()/yamp + 0.05)
-img.translate(0, -p0)
+p0 = h * ybounds[0]/dy
+img.translate(0, p0)
 
 # Show the grid lines in the plot.
 ax = p1.getAxis('left')
@@ -75,6 +79,8 @@ ax.setGrid(192)
 
 win.resize(640, 480)
 win.show()
+#-------------------------------------------------------------------------
+
 
 if __name__ == '__main__':
     import sys

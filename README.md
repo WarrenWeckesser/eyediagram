@@ -10,12 +10,15 @@ change.
 To build the package, cython and numpy must be installed.
 
 To use the package, numpy and scipy must be installed.  Plots are generated with
-either matplotlib or bokeh, so usually either one of those must be installed.
-However, the core function `eyediagram.core.grid_count` generates a numpy array
-that can be displayed or saved as an image using any other plotting or
-image-handling software, so it is not an strict requirement that `matplotlib`
-or `bokeh` be installed.  See the example `pyqtgraph_demo.py` below for an
-example that uses `pyqtgraph` to display the eye diagram.
+either matplotlib (http://matplotlib.org/) or bokeh (http://bokeh.pydata.org/),
+so usually either one of those must be installed.  However, the core function
+`eyediagram.core.grid_count` generates a numpy array that can be displayed or
+saved as an image using any other plotting or image-handling software, so it
+is not a strict requirement that `matplotlib` or `bokeh` be installed.  See
+the example `pyqtgraph_demo.py` below for an example that uses `pyqtgraph`
+(http://www.pyqtgraph.org/) to display the eye diagram.  Another example,
+`chaco_demo.py` in the demo directory of the source code, uses `chaco`
+(https://github.com/enthought/chaco) to plot the eye diagram.
 
 Example - matplotlib
 --------------------

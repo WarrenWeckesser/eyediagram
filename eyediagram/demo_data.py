@@ -2,7 +2,8 @@
 # This software is licensed according to the "BSD 2-clause" license.
 
 import numpy as np
-from scipy.signal import ellip, lfilter
+import matplotlib.pyplot as plt
+from scipy.signal import ellip, lfilter, hann, freqs
 
 
 def demo_data(num_symbols, samples_per_symbol):
@@ -45,3 +46,28 @@ def demo_data(num_symbols, samples_per_symbol):
     y = lfilter(b, a, sig + 0.075*np.random.randn(len(sig)))
 
     return y
+
+def demo_ASK(num_symbols, samples_per_symbol, ask_order=2, rc=True, bandlimit=True, noise=0.0):
+    bits = np.float16(np.random.randint(0, ask_order, size=num_symbols))/(ask_order-1)
+    sig = np.repeat(bits, samples_per_symbol)
+    if rc:
+        # raised-cosine filter also known as Hann window (not to be confused with Hanning window!)
+        win = hann(samples_per_symbol)
+        sig = np.convolve(sig, win/np.sum(win), mode='same')
+    # Add noise
+    sig += noise*np.random.randn(len(sig))
+    if bandlimit:
+        # limit bandwidth to Nyquist bandwidth f_cutoff = f_sample/2
+        f_cutoff = 2.0/np.float16(samples_per_symbol)
+        print f_cutoff
+        # we'll use a 4th order Cauer bandpass filter (realistic!)
+        (b, a) = ellip(4, 0.05, 40, f_cutoff, 'low') # , analog=True)
+        if False:
+            (w, h) = freqs(b, a)
+            print min(w), min(abs(h))
+            plt.plot(w, 20*np.log10(abs(h)))
+            plt.show()
+        sig = lfilter(b, a, sig)
+    
+    return sig
+

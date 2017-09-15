@@ -2,7 +2,7 @@ eyediagram
 ==========
 
 `eyediagram` is a python library for generating eye diagrams (also known as
-eye patterns [http://en.wikipedia.org/wiki/Eye_pattern]).
+[eye patterns](http://en.wikipedia.org/wiki/Eye_pattern)).
 
 This is prototype-quality software.  The documentation is thin, and the API may
 change.

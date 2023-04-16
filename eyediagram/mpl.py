@@ -50,7 +50,7 @@ def eyediagram(y, window_size, offset=0, colorbar=True, **imshowkwargs):
                 extent=[0, 2, min_y, max_y],
                 **imshowkwargs)
     ax = _plt.gca()
-    ax.set_axis_bgcolor('k')
+    ax.set_facecolor('k')
     _plt.grid(color='w')
     if colorbar:
         _plt.colorbar()

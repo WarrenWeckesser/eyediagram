@@ -65,11 +65,13 @@ img.setBorder(10)
 p1.addItem(img)
 
 # Set position and scale of image.
+tr = QtGui.QTransform()
 dy = ybounds[1] - ybounds[0]
-img.scale(2./counts.shape[0], dy/counts.shape[1])
+tr.scale(2./counts.shape[0], dy/counts.shape[1])
 h = counts.shape[1]
 p0 = h * ybounds[0]/dy
-img.translate(0, p0)
+tr.translate(0, p0)
+img.setTransform(tr)
 
 # Show the grid lines in the plot.
 ax = p1.getAxis('left')
@@ -85,4 +87,4 @@ win.show()
 if __name__ == '__main__':
     import sys
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-        QtGui.QApplication.instance().exec_()
+        QtGui.QGuiApplication.instance().exec_()

@@ -1,8 +1,6 @@
 # Copyright (c) 2015, Warren Weckesser.  All rights reserved.
 # This software is licensed according to the "BSD 2-clause" license.
 
-from __future__ import division as _division, print_function as _print_function
-
 import numpy as _np
 from .core import grid_count as _grid_count
 import matplotlib.pyplot as _plt

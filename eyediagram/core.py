@@ -1,8 +1,6 @@
 # Copyright (c) 2015, Warren Weckesser.  All rights reserved.
 # This software is licensed according to the "BSD 2-clause" license.
 
-from __future__ import division as _division, print_function as _print_function
-
 import numpy as _np
 from scipy.interpolate import interp1d as _interp1d
 from ._brescount import bres_curve_count as _bres_curve_count

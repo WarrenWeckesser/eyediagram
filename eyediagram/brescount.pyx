@@ -1,6 +1,8 @@
 # Copyright (c) 2015, Warren Weckesser.  All rights reserved.
 # This software is licensed according to the "BSD 2-clause" license.
 
+# cython: language_level=3
+
 cimport cython
 
 

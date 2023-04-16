@@ -41,7 +41,7 @@ def eyediagram(y, window_size, offset=0,
 
     tcounts = counts.T[::-1, :]
 
-    img = _np.zeros_like(tcounts, dtype=_np.uint32)
+    img = _np.zeros_like(tcounts, dtype=_np.uint32, order='C')
     imgv = img.view(dtype=_np.uint8).reshape(img.shape + (4,))
 
     if cmap is None:
@@ -66,14 +66,15 @@ def eyediagram(y, window_size, offset=0,
     max_x = 2.0
     min_y = ymin - 0.05*yamp
     max_y = ymax + 0.05*yamp
-    p1 = _bp.figure(title="Eye Diagram", plot_width=800, plot_height=500,
+    p1 = _bp.figure(title="Eye Diagram", width=800, height=500,
                     x_range=[min_x, max_x], y_range=[min_y, max_y],
-                    background_fill='black')
+                    background_fill_color='black')
     p1.grid.grid_line_color = '#484848'
     p1.grid.grid_line_dash = [5, 2]
     p1.image_rgba(image=[imgv.view(_np.uint32).reshape(img.shape)],
                   x=[min_x], y=[min_y],
                   dw=[max_x - min_x], dh=[max_y - min_y])
     return p1
+
 
 eyediagram.__doc__ = eyediagram.__doc__.replace("<common>", _common_doc)

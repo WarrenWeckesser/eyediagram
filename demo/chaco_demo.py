@@ -2,6 +2,9 @@
 # This software is licensed according to the "BSD 2-clause" license.
 #
 # Use chaco to display the eye diagram computed by eyediagram.grid_count.
+#
+# XXX This code has not been updated in many years, and might not be
+#     compatible with the latest versions of chaco, enable, etc.
 
 import numpy as np
 

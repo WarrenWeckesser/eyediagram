@@ -1,6 +1,8 @@
 eyediagram
 ==========
 
+Fork from Warren Weckesser's repo: https://github.com/WarrenWeckesser/eyediagram
+
 `eyediagram` is a python library for generating eye diagrams (also known as
 [eye patterns](http://en.wikipedia.org/wiki/Eye_pattern)).
 
